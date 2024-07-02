@@ -25,11 +25,11 @@ class CacheCleaner implements Runnable {
     @SneakyThrows
     public static void setSleepTime(long mils){
         if(mils <= minSleepTime )
-            throw new IllegalArgumentException("Cache time must be over 1");
-        //ХЗ как это подбирать. Пусть будет минимальное значение кэша/2
+            throw new IllegalArgumentException("Cache time must be over " +minSleepTime);
+        //ХЗ как это подбирать. Пусть будет минимальное значение кэша/5
         //но этого мало, в идеале, надо каждый раз перебирать актуальные кэши и брать mils от туда
-        if (((mils/2) < sleepTime) || sleepTime.equals(minSleepTime)) {
-            sleepTime = mils/2;
+        if (((mils/5) < sleepTime) || sleepTime.equals(minSleepTime)) {
+            sleepTime = mils/5;
             var t = new Thread(() -> setNewSchedulerPeriod(sleepTime)); //Иначе это задержит основной поток ожидая awaitTermination
             t.setDaemon(true);
             t.start();
@@ -50,14 +50,19 @@ class CacheCleaner implements Runnable {
     @Override
     @SneakyThrows
     public void run() {
+            //System.out.println("run");
             for (Map<org.example.State, Map<Method, Result>> states : list) {
                for(Map<Method, Result> map : states.values()){
                     for (Method met : map.keySet()) {
                         Result result = map.get(met);
+                        //System.out.print("for " + result.value + " expireTime = " + result.expireTime);
                         if (result.expireTime == 0) continue;
                         if (!result.isAlive()) {
                             map.remove(met);
+                            //System.out.println(" removed! ");
                         }
+//                        else
+//                            System.out.println(" ");
                     }
             }//keyset
             }

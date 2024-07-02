@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Этот тест взять из предыдущего задания и не менялся должен отрабатывать без ошибок
 class FractionableTest {
 
     @ParameterizedTest(name = "Set Num: \"{0}\"")

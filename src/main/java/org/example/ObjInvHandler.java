@@ -32,16 +32,15 @@ public class ObjInvHandler<T> implements InvocationHandler {
             long time = curMeth.getAnnotation(Cache.class).value(); //срок годности указанный в аннотации конкретного метода
             Result res = curStateResults.get(curMeth); //результат в текущем состоянии (если есть)
 
-
             if (res!=null) { //Это если результат для текущего состояния уже вычислялся. Счиать не надо, но срок жизни надо сбросить
                 res.expireTime = (time == 0)?0L:System.currentTimeMillis() + time; //Установить новый срок действия для тек.результата
                 curStateResults.put(curMeth,res); //обновим обновленный текущий результат в кеше
-                //System.out.println(" from cache = " + res.value);
+                //System.out.println("value from cache = " + res.value);
             } else {
                 //Если не попвл в пред. IF значит резултата еще = нет новый кэщ
                 CacheCleaner.setSleepTime(time); //периодичность запуска чистки как минимальное время кэша/2
                 res = new Result(((time == 0) ? 0L : System.currentTimeMillis() + time), method.invoke(curObj, args)); //Получу его из метода и соберу новый объект для записи в кэш
-                //System.out.println(" set new cache = " + res.value);
+                //System.out.println("value set new cache = " + res.value);
                 curStateResults.put(curMeth, res); // и запишу его туда
             }
             return res.value;
