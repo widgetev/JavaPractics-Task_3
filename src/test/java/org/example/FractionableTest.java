@@ -44,6 +44,9 @@ class FractionableTest {
         f.setNum(1);
         Assertions.assertEquals((double) 1/8, f.doubleValue()); //использование любого Mutable метода сброисит кэш
         Assertions.assertNotEquals((double) 2/3, f.doubleValue()); //использование любого Mutable метода сброисит кэш
+        f.setNum(2);
+        f.setDenum(3);
+        Assertions.assertEquals((double) 2/3, f.doubleValue()); //такое значение уже должно быть в кеше
 
     }
 }

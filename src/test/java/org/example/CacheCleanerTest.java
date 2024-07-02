@@ -68,6 +68,8 @@ public class CacheCleanerTest {
         num.setNum(5);
         num.doubleValue();// sout сработал
         num.doubleValue();// sout молчит
+        num.setNum(2);
+        num.setDenum(3);
         num.doubleValue();// sout молчит
         num.setDenum(8);
         num.doubleValue();// sout сработал
