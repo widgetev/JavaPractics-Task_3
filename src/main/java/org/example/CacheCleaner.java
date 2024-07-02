@@ -14,7 +14,7 @@ class CacheCleaner implements Runnable {
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
         @Override
         public Thread newThread(Runnable r) {
-            Thread th = new Thread(r);
+            Thread th = new Thread(r, "Cache cleaner" );
             th.setDaemon(true);
             return th;
         }

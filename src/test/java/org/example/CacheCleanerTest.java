@@ -1,11 +1,13 @@
 package org.example;
 
+import org.apache.commons.lang3.ThreadUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,6 +43,56 @@ public class CacheCleanerTest {
         Assertions.assertEquals(resCache1,resCache2);
         Assertions.assertEquals(resCache1,resCache3);
         Assertions.assertEquals(2, testFraction.dValCount);
+    }
+    @Test
+    void testThread() throws InterruptedException {
+        //App.main(); не буду дергать там много вывода в консоль
+
+        Fraction fr= new Fraction(2,3);
+        Fractionable num =Utils.cache(fr);
+        num.setNum(2);
+        num.setDenum(3);
+        num.toString();
+
+        Fractionable num2 = Utils.cache(new Fraction(3,4));
+
+        num2.toString();
+        Thread.sleep(2000);
+        num2.toString();
+        num.doubleValue();// sout сработал
+        num2.doubleValue();// sout сработал
+        num.doubleValue();// sout молчит
+        num2.toString();
+        num2.doubleValue();// sout молчит
+
+        num.setNum(5);
+        num.doubleValue();// sout сработал
+        num.doubleValue();// sout молчит
+        num.doubleValue();// sout молчит
+        num.setDenum(8);
+        num.doubleValue();// sout сработал
+        num.doubleValue();// sout молчит
+        Thread.sleep(1100);
+
+        num.doubleValue();// sout сработал
+        num.toString();
+        num2.doubleValue();// sout молчит
+        num2.toString();
+
+        Thread.sleep(4000);
+                Fractionable num3 = Utils.cache(new Fraction(1,1));
+        num3.setNum(7);
+        num3.setDenum(16);
+        num3.doubleValue();// sout сработал
+        num3.toString();
+        Thread.sleep(800);
+        num3.toString();
+        num3.doubleValue();// sout сработал
+        num3.toString();
+
+        Collection<Thread> cleaner = ThreadUtils.findThreadsByName("Cache cleaner");
+        Assertions.assertEquals(1,cleaner.size());
+
     }
 
 }

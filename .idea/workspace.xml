@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e5bbf84-05a4-4962-9c4b-7e6820f0c12a" name="Changes" comment="Добавлены тесты">
+    <list default="true" id="2e5bbf84-05a4-4962-9c4b-7e6820f0c12a" name="Changes" comment="Чуть красоты по замечаниям IDEA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CacheCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CacheCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/CacheCleanerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/CacheCleanerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CacheCleanerTest.checkCacheTime">
+  <component name="RunManager" selected="JUnit.CacheCleanerTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="Task_3" />
@@ -69,6 +70,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CacheCleanerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task_3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CacheCleanerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -84,6 +100,22 @@
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.CacheCleanerTest" />
       <option name="METHOD_NAME" value="checkCacheTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CacheCleanerTest.testThread" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task_3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CacheCleanerTest" />
+      <option name="METHOD_NAME" value="testThread" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -106,6 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CacheCleanerTest" />
+        <item itemvalue="JUnit.CacheCleanerTest.testThread" />
         <item itemvalue="JUnit.CacheCleanerTest.checkCacheTime" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.FractionableTest" />
@@ -123,7 +157,7 @@
       <workItem from="1718786309752" duration="4548000" />
       <workItem from="1719321178526" duration="47423000" />
       <workItem from="1719845159356" duration="3345000" />
-      <workItem from="1719920952878" duration="17941000" />
+      <workItem from="1719920952878" duration="20085000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлены тесты">
       <created>1719949010280</created>
@@ -132,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719949010280</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Чуть красоты по замечаниям IDEA">
+      <created>1719949290370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719949290370</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +192,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлены тесты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены тесты" />
+    <MESSAGE value="Чуть красоты по замечаниям IDEA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Чуть красоты по замечаниям IDEA" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
