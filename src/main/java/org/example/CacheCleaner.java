@@ -38,14 +38,14 @@ class CacheCleaner implements Runnable {
 
     @SneakyThrows
     private static void setNewSchedulerPeriod(long mils) {
-        scheduler.awaitTermination(1, TimeUnit.SECONDS);
-        scheduler.scheduleAtFixedRate(CacheCleanerHolder.cleaner::run, 1, mils, TimeUnit.MILLISECONDS);
+        scheduler.awaitTermination(1, TimeUnit.SECONDS); //таймаут не буду уже обрабатывать.
+        scheduler.scheduleAtFixedRate(CacheCleanerHolder.cleaner, 1, mils, TimeUnit.MILLISECONDS);
     }
 
     public static CacheCleaner getInstance(){
-        scheduler.scheduleAtFixedRate(CacheCleanerHolder.cleaner::run, 1, minSleepTime, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(CacheCleanerHolder.cleaner, 1, minSleepTime, TimeUnit.MILLISECONDS);
         return CacheCleanerHolder.cleaner;
-    };
+    }
 
     @Override
     @SneakyThrows

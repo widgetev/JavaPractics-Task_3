@@ -1,10 +1,9 @@
 package org.example;
 
-public class Result<T> {
+public class Result {
     long expireTime;
-    T value;
-
-    public Result(long expireTime, T value) {
+    Object value;
+    public Result(long expireTime, Object value) {
         this.expireTime = expireTime;
         this.value = value;
     }
